@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import logo from "./logo.svg";
+import "./App.css";
+import MyComponent from "./MyComponent";
+import Say from "./Say";
+import EventPratice from "./EventPratice";
+import ValidationSample from "./ValidationSample";
+import ScrollBox from "./ScrollBox";
+import { Component, createRef, useRef } from "react";
+import IterationSample from "./IterationSample";
+import LifeCycleSample from "./LifeCycleSample";
+import ErrorBoundary from "./ErrorBoundary";
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
+class App extends Component {
+  state = {
+    color: "#000000",
+  };
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>랜덤 색상</button>
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
+      </div>
+    );
+  }
+}
+
+// function App() {
+// return <IterationSample />;
+// let scrollBox = useRef();
+// return <MyComponent favoriteNumber={1}>리액트</MyComponent>;
+// return <Say></Say>;
+// return <EventPratice />;
+// return <ValidationSample />;
+// return (
+//   <div>
+//     <ScrollBox ref={scrollBox} />
+//     <button
+//       onClick={() => {
+//         scrollBox.scrollToBottom();
+//       }}
+//     >
+//       맨 밑으로
+//     </button>
+//   </div>
+// );
+// }
 
 export default App;
