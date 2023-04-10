@@ -9,12 +9,14 @@ import { Component, createRef, useRef } from "react";
 import IterationSample from "./IterationSample";
 import LifeCycleSample from "./LifeCycleSample";
 import ErrorBoundary from "./ErrorBoundary";
-import Info from "./Info";
+// import Info from "./Info";
 import Counter from "./Counter";
 import Average from "./Average";
+import Immer from "./Immer";
 
 function App() {
-  return <Average />;
+  return <Immer />;
+  // return <Average />;
   // return <Counter />;
   // return <Info />;
 }
