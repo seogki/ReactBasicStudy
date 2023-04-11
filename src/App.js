@@ -13,9 +13,20 @@ import ErrorBoundary from "./ErrorBoundary";
 import Counter from "./Counter";
 import Average from "./Average";
 import Immer from "./Immer";
+import ColorBox from "./components/ColorBox";
+import ColorContext, { ColorProvider } from "./context/color";
+import SelectColor from "./components/SelectColor";
 
 function App() {
-  return <Immer />;
+  return (
+    <ColorProvider>
+      <div>
+        <SelectColor />
+        <ColorBox />
+      </div>
+    </ColorProvider>
+  );
+  // return <Immer />;
   // return <Average />;
   // return <Counter />;
   // return <Info />;
